@@ -39,12 +39,18 @@ def fetch_book_details(isbn):
     book = Book.query.filter_by(isbn=isbn).first()
 
     if book:
-        return {
-            'author': book.author,
-            'title': book.title,
-            'summary': book.summary,
-            'cover_url': book.cover_url
-        }
+        book_list = [
+            {
+                'id': book.id,
+                'isbn': book.isbn,
+                'author': book.author,
+                'title': book.title,
+                'summary': book.summary,
+                'cover_url': book.cover_url,
+                'status': book.status
+            }
+        ]
+        return book_list
     else:
         return {'error': 'Book not found'}
 
