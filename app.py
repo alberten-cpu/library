@@ -37,7 +37,7 @@ def validate_isbn(isbn):
 # Function for fetching book details from the database
 def fetch_book_details(isbn):
     book = Book.query.filter_by(isbn=isbn).first()
-    #
+
     if book:
         book_list = [
             {
